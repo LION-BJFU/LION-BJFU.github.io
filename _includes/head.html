@@ -2,7 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MCE{% if page.title %}&#8211;{{ page.title }}  {% endif %}{{ site.title }}</title>
+<title>{% if page.title %}&#8211;{{ page.title }}  {% endif %}{{ site.title }}</title>
 
 <!-- This site is optimized with the Yoast SEO plugin v5.2 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta name="description" content="{{ page.description | strip_html }}"/>
