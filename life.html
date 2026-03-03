@@ -27,24 +27,24 @@
             margin: 0.8rem 0;
             line-height: 1.6;
         }
-        /* ✅ 关键修复：强制图片说明非斜体 + 字体优化 */
+        
         .img-caption {
-            font-style: normal;      /* 取消斜体 */
+            font-style: normal;      
             color: #333;
             margin-top: 12px;
             font-size: 16px;
             font-weight: 500;
             text-align: center;
         }
-        /* ✅ 16:9 图片容器规范 */
+    
         .photo-16x9 {
             position: relative;
             width: 100%;
-            height: 450px;          /* 按16:9计算：450 ÷ 9 × 16 = 800px宽，适配常见屏幕 */
+            height: 450px;         
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: #f8f9fa;   /* 无图时灰底 */
+            background: #f8f9fa;   
             display: flex;
             align-items: center;
             justify-content: center;
@@ -54,7 +54,7 @@
         .photo-16x9 img {
             width: 100%;
             height: 100%;
-            object-fit: cover;     /* 保证16:9填充不失真 */
+            object-fit: cover;   
             display: block;
         }
 
@@ -97,7 +97,7 @@
                     <p>5. <strong>参观学习机会多多</strong>：优秀论文全额资助出国参会；支持参与国外高校联培项目</p>
                 </div>
 
-                <!-- 科研图片：4张（保持原图路径，仅样式更新）-->
+                
                 <div class="col-md-6">
                     <div class="photo-16x9">
                         <img src="img/lifes/组会.jpg" alt="论文研讨会">
@@ -125,7 +125,7 @@
             </div>
         </div>
 
-        <!-- 生活部分 —— 已新增3张活动图 -->
+   
         <div class="page-head">
             <div class="container">
                 <h3 class="page-title">生活</h3>
@@ -138,10 +138,10 @@
                     <p>在这里，科研严肃认真，生活温暖有趣。我们坚信：<span class="highlight">好的团队，不仅是工作伙伴，更是并肩成长的家人</span>。</p>
                     
                     <div class="activity-list">
-                        <p><strong>⚽ 运动不止步</strong>：篮球场、羽毛球场常现身影——老师带头打球，赛前热身、赛后复盘，汗水与笑声齐飞！</p>
-                        <p><strong>🎲 欢乐桌游夜</strong>：三国杀、狼人杀、互动小游戏,你划我猜，策略对决+即兴表演，总有一种欢乐让你忘记代码bug~</p>
-                        <p><strong>🎤 KTV嗨翻天</strong>：学期末团建KTV专场——导师献唱，音准？那不重要，开心才是主题！</p>
-                        <p><strong>🏕️ 春秋踏青/冬日火锅</strong>：秋日徒步、五道口探店聚餐……用脚步丈量北京，用美食凝聚情谊。</p>
+                        <p><strong> 运动不止步</strong>：篮球场、羽毛球场常现身影——老师带头打球，赛前热身、赛后复盘，汗水与笑声齐飞！</p>
+                        <p><strong> 欢乐桌游夜</strong>：三国杀、狼人杀、互动小游戏,你划我猜，策略对决+即兴表演，总有一种欢乐让你忘记代码bug~</p>
+                        <p><strong> KTV嗨翻天</strong>：学期末团建KTV专场——导师献唱，音准？那不重要，开心才是主题！</p>
+                        <p><strong> 春秋踏青/冬日火锅</strong>：秋日徒步、五道口探店聚餐……用脚步丈量北京，用美食凝聚情谊。</p>
                     </div>
 
                     <p style="margin-top: 2rem; font-size: 1.1rem; color: #2980b9;">
@@ -149,12 +149,29 @@
                     </p>
                 </div>
 
-                <!-- ✅ 生活新增图：团建 / KTV / 打牌（共3张）+ 原有6张 → 总计9张图 -->
+           <div class="col-md-6">
+                    <div class="photo-16x9">
+                        <img src="img/lifes/2025秋大合照.jpg" alt="年度大合照">
+                    </div>
+                    <p class="img-caption">银杏大道合照 · 2025年年岁岁，笑容如初</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="photo-16x9">
+                        <img src="img/lifes/2024秋天团队合照.jpg" alt="秋日合照">
+                    </div>
+                    <p class="img-caption">秋天的银杏大道 · 2024金黄落叶，青春合影</p>
+                </div>
                 <div class="col-md-6">
                     <div class="photo-16x9">
                         <img src="img/lifes/生活-团建.jpg" alt="团队团建活动">
                     </div>
                     <p class="img-caption">户外团建 · 凝聚力量，释放活力</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="photo-16x9">
+                        <img src="img/lifes/运动.jpg" alt="乒乓球">
+                    </div>
+                    <p class="img-caption">夜晚的球馆 · 师生乒乓，挥洒汗水</p>
                 </div>
                 <div class="col-md-6">
                     <div class="photo-16x9">
@@ -166,10 +183,9 @@
                     <div class="photo-16x9">
                         <img src="img/lifes/生活-打牌.jpg" alt="桌游/三国杀">
                     </div>
-                    <p class="img-caption">桌游之夜 · 三国杀/狼人杀智斗现场</p>
+                    <p class="img-caption">桌游之夜 · 三国杀智斗现场</p>
                 </div>
 
-                <!-- 原有6张校园/合照图（保留，已按16:9优化） -->
                 <div class="col-md-6">
                     <div class="photo-16x9">
                         <img src="img/lifes/俯瞰图.jpeg" alt="北林鸟瞰图">
@@ -194,29 +210,17 @@
                     </div>
                     <p class="img-caption">夏天的学研大厦 · 空调足、咖啡香、代码亮</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="photo-16x9">
-                        <img src="img/lifes/2024秋天团队合照.jpg" alt="秋日合照">
-                    </div>
-                    <p class="img-caption">秋天的银杏大道 · 金黄落叶，青春合影</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="photo-16x9">
-                        <img src="img/lifes/2025秋大合照.jpg" alt="年度大合照">
-                    </div>
-                    <p class="img-caption">银杏大道合照 · 年年岁岁，笑容如初</p>
-                </div>
+                
+                
             </div>
         </div>
     </main>
 
-    <!-- footer 保持不变（略） -->
+
     <footer class="site-footer">
-        <h2 style="text-align: center;" class="page-title"><span>北京林业大学 LION 实验室</span></h2>
-        <!-- ... footer 内容同原代码 ... -->
+        <h2 style="text-align: center;" class="page-title"><span>北京林业大学 LION 实验室</span></h2>   
     </footer>
 
-    <!-- scripts 同原代码 -->
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
