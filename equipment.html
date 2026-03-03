@@ -35,58 +35,80 @@
         </div>
 
        <main class="main-content">
+    <!-- 头部标题区 -->
     <div class="page-head">
         <div class="container">
             <h3 class="page-title">科研设备</h3>
         </div>
     </div>
 
+    <!-- 自定义 16:9 样式（建议放在 <head> 的 <style> 标签内，或直接保留在此处） -->
+    <style>
+        .photo-16x9 {
+            width: 100%;
+            height: 350px; /* 固定高度以维持 16:9 视觉感，PC端建议350-400px */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        .photo-16x9 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 核心：确保图片自动填充不拉伸 */
+        }
+        /* 强制图片下方文字不倾斜、加粗 */
+        .device-caption {
+            font-style: normal !important; 
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+        }
+    </style>
+
     <div class="fullwidth-block cta">
         <div class="container">
+            <!-- 简介段落 -->
             <div class="col-md-12">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
-                    LION实验室配备先进的科研硬件平台，支撑从算法研发、仿真验证到实物测试的全链条研究。主要设备包括高性能计算集群、多型号无人机系统及智能移动平台，为师生提供坚实的技术底座。
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 40px;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LION实验室拥有完善的软硬件支撑环境。基于高性能计算集群与多类型移动机器人平台，课题组构建了从算法仿真到实物部署的全闭环科研体系，为高水平研究成果的产出提供了坚实的保障。
                 </p>
             </div>
+
+            <!-- 1. 服务器集群 -->
             <div class="col-md-6">
-                <div class="photo-16x9" style="background:#f0f7ff; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#2980b9;">
-                    <span>高性能计算集群</span>
+                <div class="photo-16x9">
+                    <img src="img/devices/服务器.jpg" alt="服务器集群">
                 </div>
-                <p class="img-caption"><strong>服务器集群</strong><br>
-                    含 8 节点 GPU 服务器（NVIDIA A100×4 + RTX 4090×4），128核CPU，512GB DDR5内存，100TB NVMe存储；支持大规模模型训练与分布式仿真。</p>
-            </div>
-            <div class="col-md-6">
-                <div class="photo-16x9" style="background:#e8f5e9; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#27ae60;">
-                    <span>大疆无人机系统</span>
-                </div>
-                <p class="img-caption"><strong>大疆 Matrice 300 RTK + H20T</strong><br>
-                    支持激光雷达、热成像、变焦可见光三模载荷；实现实时厘米级定位，适用于林区巡检、三维建图与自主导航实验。</p>
-            </div>
-            <div class="col-md-6">
-                <div class="photo-16x9" style="background:#fff8e1; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#d35400;">
-                    <span>室内2D导航小车</span>
-                </div>
-                <p class="img-caption"><strong>2D</strong><br>
-                    集成 LiDAR + IMU + 编码器 + Jetson Nano；运行 SLAM、路径规划与多机协同算法，用于室内场景验证与教学实验。</p>
-            </div>
-            <div class="col-md-6">
-                <div class="photo-16x9" style="background:#f3e5f5; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#9c27b0;">
-                    <span>履带式无人车平台</span>
-                </div>
-                <p class="img-caption"><strong>履带</strong><br>
-                    自主设计底盘，搭载 STM32 主控 + 4G/5G 通信模块 + 高清云台摄像机；具备坡道攀爬、泥地通过能力，适用于野外复杂环境测试。</p>
+                <p class="device-caption">课题组高性能服务器集群</p>
             </div>
 
-            <!-- 补充说明（可选，增强可信度） -->
-            <div class="col-md-12" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 0 6px 6px 0;">
-                <h4 style="color: #2c3e50; margin-top: 0;">💡 使用场景示例</h4>
-                <ul style="padding-left: 20px; line-height: 1.7;">
-                    <li>服务器集群 → 训练轻量化神经网络 / 大规模仿真实验</li>
-                    <li>大疆无人机 → 林业遥感监测、灾害评估、自主避障飞行</li>
-                    <li>2D导航小车 → SLAM 算法对比、动态障碍物规避、多机器人编队</li>
-                    <li>履带无人车 → 野外路径规划、跨域协同、边缘计算部署验证</li>
-                </ul>
+            <!-- 2. 大疆无人机 -->
+            <div class="col-md-6">
+                <div class="photo-16x9">
+                    <img src="img/devices/UAV.jpg" alt="大疆无人机">
+                </div>
+                <p class="device-caption">大疆高精度测绘与巡检无人机 (UAV)</p>
             </div>
+
+            <!-- 3. 2D导航小车 -->
+            <div class="col-md-6">
+                <div class="photo-16x9">
+                    <img src="img/devices/2D.jpg" alt="室内导航小车">
+                </div>
+                <p class="device-caption">室内 ROS 2D 智能导航验证平台</p>
+            </div>
+
+            <!-- 4. 履带无人车 -->
+            <div class="col-md-6">
+                <div class="photo-16x9">
+                    <img src="img/devices/履带.jpg" alt="履带式无人车">
+                </div>
+                <p class="device-caption">全地形履带式自主导航无人车</p>
+            </div>
+
         </div>
     </div>
 </main>
