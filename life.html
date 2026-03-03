@@ -77,7 +77,26 @@
 </head>
 
 <body>
-    <!-- ... header & blank 略 ... -->
+    <div class="site-content">
+        <header class="site-header">
+            <ul class="topnav">
+                <li>
+                    <a class="logo-image" href="#">
+                        <p align="center"><img src="img/others/bjfu.jpg" width="50" height="50" /></p>
+                    </a>
+                </li>
+                <li><a href="index.html">团队简介</a></li>
+                <li><a href="news.html">最新动向</a></li>
+                <li><a href="member.html">团队成员</a></li>
+                <li><a href="equipment.html">科研设备</a></li>
+                <li><a href="paper.html">科研论文</a></li>
+                <li><a href="project.html">科研项目</a></li>
+                <li><a class="active" href="life.html">科研生活</a></li>
+                <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?" target="_blank">成果分享</a></li>
+            </ul>
+        </header>
+
+        <div class="blank" style="height: 40px;"></div>
 
     <main class="main-content">
         <!-- 科研部分 -->
@@ -217,10 +236,50 @@
     </main>
 
 
-    <footer class="site-footer">
-        <h2 style="text-align: center;" class="page-title"><span>北京林业大学 LION 实验室</span></h2>   
-    </footer>
+   <footer class="site-footer">
+            <h2 style="text-align: center;" class="page-title"><span>北京林业大学 LION 实验室</span></h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-1">
+                        <div class="widget">
+                            <h3 class="widget-title">联系我们</h3>
+                            <address>
+                                <div class="col-xs-2">
+                                    <p>办公地点<br /><br />北京林业大学学研大厦 / 西配楼</p>
+                                    <p>联系电话<br /><br />010-62337273</p>
+                                </div>
+                                <div class="col-xs-2">
+                                    <p>电子邮件汇总<br /><br />
+                                        fanxin@bjfu.edu.cn<br />
+                                        chuanwenluo@bjfu.edu.cn<br />
+                                        hongyi@bjfu.edu.cn
+                                    </p>
+                                </div>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="widget">
+                            <h3 class="widget-title">相关链接</h3>
+                            <ul class="dash-list">
+                                <li><a href="https://fuanxiyin.github.io/" target="_blank">范新老师个人主页</a></li>
+                                <li><a href="https://www.bjfu.edu.cn/" target="_blank">北京林业大学主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/" target="_blank">信息学院主页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="widget">
+                            <h3 class="widget-title">官方微信公众号</h3>
+                            <img src="img/others/w.jpg" width="200" height="200" style="border-radius:10px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
+    <!-- 脚本引用保持不变 -->
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
