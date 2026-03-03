@@ -9,84 +9,207 @@
     <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 新增年份区块样式 */
+        /* 新增年份区块样式 - 蓝绿色主题 */
         .year-section {
-            margin-bottom: 60px;
-            padding: 30px 0;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
         .year-header {
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: 700;
-            color: #2c3e50;
-            border-bottom: 4px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            display: inline-block;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 3px solid;
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .year-2025 .year-header { border-color: #e74c3c; color: #c0392b; }
-        .year-2024 .year-header { border-color: #3498db; color: #2980b9; }
-        .year-2023 .year-header { border-color: #27ae60; color: #229954; }
+        /* 2026 - 深青绿色 */
+        .year-2026 .year-header { 
+            color: #00695c; 
+            border-color: #00695c;
+        }
+        
+        /* 2025 - 蓝绿色 */
+        .year-2025 .year-header { 
+            color: #00838f; 
+            border-color: #00838f;
+        }
+        
+        /* 2024 - 青蓝色 */
+        .year-2024 .year-header { 
+            color: #0277bd; 
+            border-color: #0277bd;
+        }
+        
+        /* 2023 - 深青色 */
+        .year-2023 .year-header { 
+            color: #004d40; 
+            border-color: #004d40;
+        }
         
         .news-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .news-list li {
-            background: #f8f9fa;
-            margin-bottom: 15px;
-            padding: 20px;
-            border-left: 5px solid #3498db;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f4f8 100%);
+            margin-bottom: 12px;
+            padding: 18px 20px;
+            border-left: 4px solid;
             border-radius: 0 8px 8px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .year-2025 .news-list li { border-left-color: #e74c3c; }
-        .year-2024 .news-list li { border-left-color: #3498db; }
-        .year-2023 .news-list li { border-left-color: #27ae60; }
+        .news-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease;
+            z-index: 0;
+        }
+        
+        .news-list li:hover::before {
+            width: 100%;
+        }
         
         .news-list li:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateX(8px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .news-list li > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 各年份边框颜色 */
+        .year-2026 .news-list li { 
+            border-left-color: #00695c; 
+        }
+        .year-2026 .news-list li::before {
+            background: linear-gradient(90deg, rgba(0,105,92,0.1) 0%, transparent 100%);
+        }
+        
+        .year-2025 .news-list li { 
+            border-left-color: #00838f; 
+        }
+        .year-2025 .news-list li::before {
+            background: linear-gradient(90deg, rgba(0,131,143,0.1) 0%, transparent 100%);
+        }
+        
+        .year-2024 .news-list li { 
+            border-left-color: #0277bd; 
+        }
+        .year-2024 .news-list li::before {
+            background: linear-gradient(90deg, rgba(2,119,189,0.1) 0%, transparent 100%);
+        }
+        
+        .year-2023 .news-list li { 
+            border-left-color: #004d40; 
+        }
+        .year-2023 .news-list li::before {
+            background: linear-gradient(90deg, rgba(0,77,64,0.1) 0%, transparent 100%);
         }
         
         .news-date {
             display: inline-block;
             font-weight: 700;
             color: #fff;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.9em;
+            font-size: 0.85em;
             margin-right: 15px;
-            min-width: 80px;
+            min-width: 70px;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         
-        .year-2025 .news-date { background: #e74c3c; }
-        .year-2024 .news-date { background: #3498db; }
-        .year-2023 .news-date { background: #27ae60; }
+        /* 各年份日期标签颜色 */
+        .year-2026 .news-date { background: linear-gradient(135deg, #00695c 0%, #00897b 100%); }
+        .year-2025 .news-date { background: linear-gradient(135deg, #00838f 0%, #00acc1 100%); }
+        .year-2024 .news-date { background: linear-gradient(135deg, #0277bd 0%, #29b6f6 100%); }
+        .year-2023 .news-date { background: linear-gradient(135deg, #004d40 0%, #00796b 100%); }
         
         .news-content {
             display: inline;
             line-height: 1.6;
-            color: #2c3e50;
+            color: #263238;
+            font-size: 1.05em;
         }
         
+        /* 高亮样式 - 蓝绿色系 */
         .highlight {
-            color: #e74c3c;
+            color: #00695c;
+            font-weight: 700;
+        }
+        
+        .funding { 
+            color: #00838f; 
+            font-weight: 700;
+            background: rgba(0,131,143,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .award { 
+            color: #00695c; 
+            font-weight: 700;
+            background: rgba(0,105,92,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .paper { 
+            color: #0277bd; 
+            font-weight: 700;
+            background: rgba(2,119,189,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .event {
+            color: #455a64;
             font-weight: 600;
         }
         
-        .funding { color: #27ae60; font-weight: 600; }
-        .award { color: #8e44ad; font-weight: 600; }
-        .paper { color: #d35400; font-weight: 600; }
+        /* 年份标签 */
+        .year-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 10px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .year-2026 .year-badge { background: #00695c; }
+        .year-2025 .year-badge { background: #00838f; }
+        .year-2024 .year-badge { background: #0277bd; }
+        .year-2023 .year-badge { background: #004d40; }
         
         /* 原有样式保持 */
         .fullwidth-block.cta {
             padding: 40px 0;
+            background: linear-gradient(180deg, #fafbfc 0%, #f0f4f8 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
     </style>
 </head>
@@ -123,6 +246,25 @@
             <div class="fullwidth-block cta">
                 <div class="container">
                     
+                    <!-- 2026年区块 -->
+                    <div class="year-section year-2026">
+                        <h2 class="year-header">2026 <span class="year-badge">最新</span></h2>
+                        <ul class="news-list">
+                            <li>
+                                <span class="news-date">03月</span>
+                                <span class="news-content"><span class="event">国家优青北京邮电大学教授副院长郭少勇交流指导</span></span>
+                            </li>
+                            <li>
+                                <span class="news-date">02月05日</span>
+                                <span class="news-content"><span class="event">课题组团建（昌平某民宿）</span></span>
+                            </li>
+                            <li>
+                                <span class="news-date">01月27日</span>
+                                <span class="news-content"><span class="event">国家杰青清华大学长聘教授何源老师交流指导</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- 2025年区块 -->
                     <div class="year-section year-2025">
                         <h2 class="year-header">2025</h2>
@@ -133,7 +275,7 @@
                             </li>
                             <li>
                                 <span class="news-date">12月</span>
-                                <span class="news-content">北京邮电大学特聘研究员齐涛老师交流指导</span>
+                                <span class="news-content"><span class="event">北京邮电大学特聘研究员齐涛老师交流指导</span></span>
                             </li>
                             <li>
                                 <span class="news-date">11月</span>
@@ -145,7 +287,7 @@
                             </li>
                             <li>
                                 <span class="news-date">11月15日</span>
-                                <span class="news-content">北林人大联谊活动（舞彩浅山）</span>
+                                <span class="news-content"><span class="event">北林人大联谊活动（舞彩浅山）</span></span>
                             </li>
                             <li>
                                 <span class="news-date">09月</span>
@@ -153,7 +295,7 @@
                             </li>
                             <li>
                                 <span class="news-date">09月26日</span>
-                                <span class="news-content">人民大学王永才教授（计算机系副系主任）交流指导</span>
+                                <span class="news-content"><span class="event">人民大学王永才教授（计算机系副系主任）交流指导</span></span>
                             </li>
                             <li>
                                 <span class="news-date">07月</span>
@@ -173,7 +315,7 @@
                             </li>
                             <li>
                                 <span class="news-date">01月</span>
-                                <span class="news-content">国家优青北京大学许辰人教授交流指导</span>
+                                <span class="news-content"><span class="event">国家优青北京大学许辰人教授交流指导</span></span>
                             </li>
                         </ul>
                     </div>
@@ -200,7 +342,7 @@
                             </li>
                             <li>
                                 <span class="news-date">09月11日</span>
-                                <span class="news-content">课题组迎新聚餐</span>
+                                <span class="news-content"><span class="event">课题组迎新聚餐</span></span>
                             </li>
                             <li>
                                 <span class="news-date">06月</span>
@@ -212,7 +354,7 @@
                             </li>
                             <li>
                                 <span class="news-date">05月</span>
-                                <span class="news-content">山东大学成秀珍教授（计算机学院院长，IEEE Fellow）交流指导</span>
+                                <span class="news-content"><span class="event">山东大学成秀珍教授（计算机学院院长，IEEE Fellow）交流指导</span></span>
                             </li>
                         </ul>
                     </div>
@@ -223,26 +365,7 @@
                         <ul class="news-list">
                             <li>
                                 <span class="news-date">11月</span>
-                                <span class="news-content">课题组迎新聚餐</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 2026年预告区块（可选，用于即将发生的事件） -->
-                    <div class="year-section" style="opacity: 0.7;">
-                        <h2 class="year-header" style="border-color: #95a5a6; color: #7f8c8d;">2026（近期预告）</h2>
-                        <ul class="news-list">
-                            <li style="border-left-color: #95a5a6;">
-                                <span class="news-date" style="background: #95a5a6;">03月</span>
-                                <span class="news-content">国家优青北京邮电大学教授副院长郭少勇交流指导</span>
-                            </li>
-                            <li style="border-left-color: #95a5a6;">
-                                <span class="news-date" style="background: #95a5a6;">02月05日</span>
-                                <span class="news-content">课题组团建（昌平某民宿）</span>
-                            </li>
-                            <li style="border-left-color: #95a5a6;">
-                                <span class="news-date" style="background: #95a5a6;">01月27日</span>
-                                <span class="news-content">国家杰青清华大学长聘教授何源老师交流指导</span>
+                                <span class="news-content"><span class="event">课题组迎新聚餐</span></span>
                             </li>
                         </ul>
                     </div>
