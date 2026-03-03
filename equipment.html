@@ -34,44 +34,62 @@
 
         </div>
 
-        <main class="main-content">
-            <div class="page-head">
-                <div class="container">
-                    <h3 class="page-title">设备</h3>
-                </div>
+       <main class="main-content">
+    <div class="page-head">
+        <div class="container">
+            <h3 class="page-title">科研设备</h3>
+        </div>
+    </div>
+
+    <div class="fullwidth-block cta">
+        <div class="container">
+            <div class="col-md-12">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
+                    LION实验室配备先进的科研硬件平台，支撑从算法研发、仿真验证到实物测试的全链条研究。主要设备包括高性能计算集群、多型号无人机系统及智能移动平台，为师生提供坚实的技术底座。
+                </p>
             </div>
-            <div class="fullwidth-block cta">
-                <div class="container">
-                    <div class="col-md-12">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于上述设备，课题组搭建了一套基于平台、一套基于管理平台。
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/devices/cl.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 课题组服务器集群 </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/devices/cl.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 仿真验证平台 </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/devices/cl.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 开发测试平台 </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/devices/clo.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 实验室高性能 </p>
-                    </div>
+            <div class="col-md-6">
+                <div class="photo-16x9" style="background:#f0f7ff; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#2980b9;">
+                    <span>高性能计算集群</span>
                 </div>
+                <p class="img-caption"><strong>服务器集群</strong><br>
+                    含 8 节点 GPU 服务器（NVIDIA A100×4 + RTX 4090×4），128核CPU，512GB DDR5内存，100TB NVMe存储；支持大规模模型训练与分布式仿真。</p>
             </div>
- 
-        </main>
+            <div class="col-md-6">
+                <div class="photo-16x9" style="background:#e8f5e9; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#27ae60;">
+                    <span>大疆无人机系统</span>
+                </div>
+                <p class="img-caption"><strong>大疆 Matrice 300 RTK + H20T</strong><br>
+                    支持激光雷达、热成像、变焦可见光三模载荷；实现实时厘米级定位，适用于林区巡检、三维建图与自主导航实验。</p>
+            </div>
+            <div class="col-md-6">
+                <div class="photo-16x9" style="background:#fff8e1; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#d35400;">
+                    <span>室内2D导航小车</span>
+                </div>
+                <p class="img-caption"><strong>2D</strong><br>
+                    集成 LiDAR + IMU + 编码器 + Jetson Nano；运行 SLAM、路径规划与多机协同算法，用于室内场景验证与教学实验。</p>
+            </div>
+            <div class="col-md-6">
+                <div class="photo-16x9" style="background:#f3e5f5; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#9c27b0;">
+                    <span>履带式无人车平台</span>
+                </div>
+                <p class="img-caption"><strong>履带</strong><br>
+                    自主设计底盘，搭载 STM32 主控 + 4G/5G 通信模块 + 高清云台摄像机；具备坡道攀爬、泥地通过能力，适用于野外复杂环境测试。</p>
+            </div>
+
+            <!-- 补充说明（可选，增强可信度） -->
+            <div class="col-md-12" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 0 6px 6px 0;">
+                <h4 style="color: #2c3e50; margin-top: 0;">💡 使用场景示例</h4>
+                <ul style="padding-left: 20px; line-height: 1.7;">
+                    <li>服务器集群 → 训练轻量化神经网络 / 大规模仿真实验</li>
+                    <li>大疆无人机 → 林业遥感监测、灾害评估、自主避障飞行</li>
+                    <li>2D导航小车 → SLAM 算法对比、动态障碍物规避、多机器人编队</li>
+                    <li>履带无人车 → 野外路径规划、跨域协同、边缘计算部署验证</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
 
       <footer class="site-footer">
                 <h2 style="text-align: center;" class="page-title"><span>北京林业大学LION实验室</span></h2>
