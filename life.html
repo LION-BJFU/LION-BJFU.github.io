@@ -8,6 +8,48 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 局部美化补充样式（可合并入 style.css） */
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #e0f7fa, #b2ebf2);
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .activity-list p {
+            margin: 0.8rem 0;
+            line-height: 1.6;
+        }
+        .img-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .col-md-6 {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+        @media (max-width: 768px) {
+            .col-md-6 { width: 100%; }
+            .topnav li { display: block; }
+        }
+    </style>
 </head>
 
 <body>
@@ -29,11 +71,10 @@
                 <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?" target="_blank">成果分享</a></li>
             </ul>
         </header>
-        <div class="blank">
-
-        </div>
+        <div class="blank"></div>
 
         <main class="main-content">
+            <!-- 科研部分 —— 保持原内容，仅微调排版 -->
             <div class="page-head">
                 <div class="container">
                     <h3 class="page-title">科研</h3>
@@ -42,35 +83,33 @@
             <div class="fullwidth-block cta">
                 <div class="container">
                     <div class="col-md-12">
-                        <p>1. 顶级科学家交流机会：每年不定期聘请相关领域的国际知名科学家、IEEE Fellow等回国指导学生</p>
-                        <p>2. 良好的研究和训练条件：为学生提供科研、找工作、出国深造等全方位支持</p>
-                        <p>3. 科研经费充足：免去了学生发表论文，申请知识产权，购买各类实验器材、科研用书的后顾之忧</p>
-                        <p>4. 奖励丰厚：助研费+劳务费；高水平论文有额外奖励</p>
-                        <p>5. 参观学习机会多多：对于优秀论文全额资助出国参加国际会议；支持学生参与国外高校的联培项目</p>
+                        <p>1. <strong>顶级科学家交流机会</strong>：每年不定期聘请相关领域的国际知名科学家、IEEE Fellow等回国指导学生</p>
+                        <p>2. <strong>良好的研究和训练条件</strong>：为学生提供科研、找工作、出国深造等全方位支持</p>
+                        <p>3. <strong>科研经费充足</strong>：免去了学生发表论文，申请知识产权，购买各类实验器材、科研用书的后顾之忧</p>
+                        <p>4. <strong>奖励丰厚</strong>：助研费 + 劳务费；高水平论文有额外奖励</p>
+                        <p>5. <strong>参观学习机会多多</strong>：优秀论文全额资助出国参会；支持参与国外高校联培项目</p>
+                    </div>
 
+                    <div class="col-md-6">
+                        <img src="img/lifes/组会.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">论文研讨会 · 思维碰撞时刻</div>
                     </div>
                     <div class="col-md-6">
-                        <img src="img/lifes/组会.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 论文研讨会 </p>
+                        <img src="img/lifes/北邮赵方教授.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">专家讲座：北邮赵方教授课题组前来交流</div>
                     </div>
                     <div class="col-md-6">
-                        <img src="img/lifes/北邮赵方教授.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 专家讲座：北邮赵方教授课题组前来交流 </p>
+                        <img src="img/lifes/2024物联网大会.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">idea沙龙 · 激发灵感的火花</div>
                     </div>
                     <div class="col-md-6">
-                        <img src="img/lifes/2024物联网大会.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> idea沙龙 </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/lifes/学生参加国际会议.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 学生参加国际会议 </p>
+                        <img src="img/lifes/学生参加国际会议.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">学生参加国际会议 · 走向世界舞台</div>
                     </div>
                 </div>
             </div>
+
+            <!-- 生活部分 —— 全新润色，突出温馨活泼氛围 -->
             <div class="page-head">
                 <div class="container">
                     <h3 class="page-title">生活</h3>
@@ -79,63 +118,56 @@
             <div class="fullwidth-block">
                 <div class="container">
                     <div class="col-md-12">
-                        <p>
-                            1. 自然环境：课题组位于海淀区五道口附近，宇宙中心，景色优美
-                        </p>
-                        <p>
-                            2. 住宿环境：比较差，迁雄安后会有所改善
-                        </p>
-                        <p>
-                            3. 科研环境：课题组具备“一流”的硬件设施和研究环境
-                        </p>
-                        <p>
-                            4. 组内氛围：课题组内学生与老师氛围融洽，不定期举行各种团建活动
+                        <h3 class="section-title">师生如友 · 快乐同行</h3>
+                        <p>在这里，科研严肃认真，生活温暖有趣。我们坚信：<span class="highlight">好的团队，不仅是工作伙伴，更是并肩成长的家人</span>。</p>
+                        
+                        <div class="activity-list">
+                            <p><strong> 运动不止步</strong>：篮球场、羽毛球场常现身影——老师带头打球，赛前热身、赛后复盘，汗水与笑声齐飞！</p>
+                            <p><strong>欢乐桌游夜</strong>：三国杀、狼人杀、UNO轮番上阵，策略对决+即兴表演，总有一种欢乐让你忘记代码bug~</p>
+                            <p><strong>KTV嗨翻天</strong>：学期末团建KTV专场——导师献唱《青花瓷》，学生反串《勇气》，音准？那不重要，开心才是主题！</p>
+                            <p><strong>春秋踏青/冬日火锅</strong>：香山赏枫、奥森骑行、涮羊肉聚餐……用脚步丈量北京，用美食凝聚情谊。</p>
+                            <p><strong>学术+生活双丰收</strong>：每周五下午“咖啡角自由聊”，聊聊论文进展，也聊聊人生理想；节日小惊喜、生日蛋糕、手写贺卡，细节里都是温度。</p>
+                        </div>
+
+                        <p style="margin-top: 2rem; font-size: 1.1rem; color: #2980b9;">
+                            🌟 <em>加入LION，不只是进入一个实验室，而是开启一段有温度、有节奏、有成长的旅程。</em>
                         </p>
                     </div>
 
+                    <!-- 图片展示区（保持原有图片） -->
                     <div class="col-md-6">
-                        <img src="img/lifes/俯瞰图.jpeg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 北林鸟瞰图 </p>
+                        <img src="img/lifes/俯瞰图.jpeg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">北林鸟瞰图 · 静谧与活力交织的学府</div>
                     </div>
-
                     <div class="col-md-6">
-                        <img src="img/lifes/夜景.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 夜景 </p>
+                        <img src="img/lifes/夜景.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">夜景 · 灯火阑珊处，总有未关的实验室窗</div>
                     </div>
                     
                     <div class="col-md-6">
-                        <img src="img/lifes/林之心.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 北林地标林之心 </p>
+                        <img src="img/lifes/林之心.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">北林地标·林之心 · 我们的约会打卡地</div>
                     </div>
-                    
                     <div class="col-md-6">
-                        <img src="img/lifes/学研大厦.jpeg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 夏天的学研大厦 </p>
+                        <img src="img/lifes/学研大厦.jpeg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">夏天的学研大厦 · 空调足、咖啡香、代码亮</div>
                     </div>
 
                     <div class="col-md-6">
-                        <img src="img/lifes/2024秋天团队合照.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 秋天的银杏大道 </p>
+                        <img src="img/lifes/2024秋天团队合照.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">秋天的银杏大道 · 金黄落叶，青春合影</div>
                     </div>
-
-                     <div class="col-md-6">
-                        <img src="img/lifes/2025秋大合照.jpg" width="100%" height="400">
-                        <br>
-                        <p style="text-align:center"> 银杏大道合照 </p>
+                    <div class="col-md-6">
+                        <img src="img/lifes/2025秋大合照.jpg" width="100%" height="400" style="border-radius: 8px;">
+                        <div class="img-caption">银杏大道合照 · 年年岁岁，笑容如初</div>
                     </div>
-                   
                 </div>
             </div>
         </main>
 
-<footer class="site-footer">
-                <h2 style="text-align: center;" class="page-title"><span>北京林业大学LION实验室</span></h2>
-                <div class="container">
+        <footer class="site-footer">
+            <h2 style="text-align: center;" class="page-title"><span>北京林业大学 LION 实验室</span></h2>
+            <div class="container">
                 <div class="row">
                     <div class="col-xs-1">
                         <div class="widget">
@@ -147,7 +179,7 @@
                                         <a href="#">北京林业大学西配楼</a><br />
                                         <a href="#">北京林业大学学研大厦</a><br />
                                     </p>
-                                <p>
+                                    <p>
                                         联系电话<br /><br />
                                         <a href="#">010-62337273</a><br />
                                         <a href="#">fanxin@bjfu.edu.cn</a><br />
@@ -172,33 +204,15 @@
                         <div class="widget">
                             <h3 class="widget-title">相关链接</h3>
                             <ul class="dash-list">
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/d704e95bcba74ac5a016b02d3d0cc110.html" target="_blank" rel="noopener noreferrer">罗传文老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://fuanxiyin.github.io/" target="_blank" rel="noopener noreferrer">范&nbsp;&nbsp;&nbsp;新老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">洪&nbsp;&nbsp;&nbsp;弋老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/js2/4c27215e3e3d4813a36f3ea6f768f588.html" target="_blank" rel="noopener noreferrer">徐红艳老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/js/b5ba6b40f75b4e8f90671dfe2250a937.html" target="_blank" rel="noopener noreferrer">孙&nbsp;&nbsp;&nbsp;俏老师个人主页</a>
-                                </li>
-                                      <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/374460.html" target="_blank" rel="noopener noreferrer">孙国栋老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">罗&nbsp;&nbsp;&nbsp;丹老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学信息学院（人工智能学院）主页</a>
-                                </li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/d704e95bcba74ac5a016b02d3d0cc110.html" target="_blank" rel="noopener noreferrer">罗传文老师个人主页</a></li>
+                                <li><a href="https://fuanxiyin.github.io/" target="_blank" rel="noopener noreferrer">范&nbsp;&nbsp;&nbsp;新老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">洪&nbsp;&nbsp;&nbsp;弋老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/js2/4c27215e3e3d4813a36f3ea6f768f588.html" target="_blank" rel="noopener noreferrer">徐红艳老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/js/b5ba6b40f75b4e8f90671dfe2250a937.html" target="_blank" rel="noopener noreferrer">孙&nbsp;&nbsp;&nbsp;俏老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/374460.html" target="_blank" rel="noopener noreferrer">孙国栋老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">罗&nbsp;&nbsp;&nbsp;丹老师个人主页</a></li>
+                                <li><a href="https://www.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">信息学院（人工智能学院）主页</a></li>
                             </ul>
                         </div>
                     </div>
@@ -206,22 +220,19 @@
                         <div class="widget">
                             <h3 class="widget-title">北林LION团队微信公众号</h3>
                             <ul class="dash-list">
-                                <img src="img/others/w.jpg" width="250" height="250" />
+                                <li><img src="img/others/w.jpg" width="250" height="250" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-
     </div>
-
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 
 </html>
