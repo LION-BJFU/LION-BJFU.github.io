@@ -31,18 +31,14 @@
         </header>
         <div class="blank"></div>
 
-        <!-- ==================== 以下为主要修改内容 ==================== -->
         <main class="main-content">
-            <!-- 头部标题区 -->
             <div class="page-head">
                 <div class="container">
                     <h3 class="page-title">科研设备</h3>
                 </div>
             </div>
 
-            <!-- 页面专属样式 -->
             <style>
-                /* 整体布局 */
                 .equipment-section { margin-bottom: 70px; }
                 .section-header {
                     text-align: center;
@@ -79,7 +75,6 @@
                     margin: 0 auto 35px;
                 }
 
-                /* 设备卡片网格 */
                 .equipment-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -100,21 +95,26 @@
                     transform: translateY(-6px);
                     box-shadow: 0 16px 45px rgba(0,0,0,0.14);
                 }
+                /* 普通设备卡片图片区：固定高度，contain完整展示，灰色背景填充 */
                 .equipment-img {
                     width: 100%;
-                    height: 260px;
+                    height: 280px;
                     overflow: hidden;
                     position: relative;
                     background: #f0f2f5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .equipment-img img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
+                    object-position: center;
                     transition: transform 0.5s ease;
                 }
                 .equipment-card:hover .equipment-img img {
-                    transform: scale(1.06);
+                    transform: scale(1.04);
                 }
                 .equipment-badge {
                     position: absolute;
@@ -127,6 +127,7 @@
                     font-size: 11px;
                     font-weight: 700;
                     letter-spacing: 1.5px;
+                    z-index: 2;
                 }
                 .equipment-badge.accent {
                     background: rgba(44, 123, 229, 0.92);
@@ -186,10 +187,10 @@
                     color: #1a3a5c;
                 }
 
-                /* 全宽特色卡片 */
+                /* 旗舰特色卡片：左右布局 */
                 .featured-card {
                     display: grid;
-                    grid-template-columns: 1.1fr 0.9fr;
+                    grid-template-columns: 1fr 1fr;
                     gap: 0;
                     background: #fff;
                     border-radius: 14px;
@@ -198,23 +199,21 @@
                     margin-bottom: 35px;
                     border: 1px solid #e8e8e8;
                 }
-                .featured-card.reverse {
-                    direction: rtl;
-                }
-                .featured-card.reverse > * {
-                    direction: ltr;
-                }
                 .featured-img {
                     height: 100%;
-                    min-height: 400px;
+                    min-height: 420px;
                     overflow: hidden;
                     background: #f0f2f5;
                     position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .featured-img img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
+                    object-position: center;
                 }
                 .featured-content {
                     padding: 45px;
@@ -269,7 +268,7 @@
                     font-size: 16px;
                 }
 
-                /* 小模块卡片（传感器等） */
+                /* 传感器小模块 */
                 .module-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -290,14 +289,18 @@
                 }
                 .module-img {
                     width: 100%;
-                    height: 200px;
+                    height: 220px;
                     overflow: hidden;
                     background: #f5f5f5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .module-img img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
+                    object-position: center;
                 }
                 .module-content {
                     padding: 20px;
@@ -346,13 +349,11 @@
                     .equipment-grid { grid-template-columns: 1fr; }
                     .module-grid { grid-template-columns: 1fr; }
                     .featured-card { grid-template-columns: 1fr; }
-                    .featured-card.reverse { direction: ltr; }
-                    .featured-img { min-height: 220px; }
+                    .featured-img { min-height: 300px; }
                     .featured-content { padding: 30px; }
                 }
             </style>
 
-            <!-- 顶部简介横幅 -->
             <div class="intro-banner">
                 <h2>
                     LION实验室依托<strong>北京夺锦智能科技有限公司</strong>，构建了"计算-仿真-实物-竞赛"四位一体的全闭环科研体系。<br>
@@ -365,7 +366,6 @@
             <div class="fullwidth-block cta">
                 <div class="container">
 
-                    <!-- ==================== 板块一：具身智能旗舰平台 ==================== -->
                     <div class="equipment-section">
                         <div class="section-header">
                             <h2>具身智能旗舰平台</h2>
@@ -373,11 +373,8 @@
                         <p class="section-desc">
                             面向具身智能前沿研究，融合自主移动、模型部署、边缘计算、多模态感知和模型推理等核心功能，是感知-决策-执行全闭环的理想物理载体。
                         </p>
-
-                        <!-- 特色展示：DJ 02 Pro -->
                         <div class="featured-card">
                             <div class="featured-img">
-                                <!-- 【图片备注】此处放置：DJ 02 Pro具身智能人形机器人全身实物照（麦克纳姆轮底盘+仿生双臂+腰部升降+顶部视觉，PDF旗舰产品图） -->
                                 <img src="img/devices/DJ02Pro.jpg" alt="DJ 02 Pro具身智能人形机器人">
                                 <span class="equipment-badge" style="top:20px;right:20px;font-size:13px;padding:6px 18px;">FLAGSHIP</span>
                             </div>
@@ -399,7 +396,6 @@
                         </div>
                     </div>
 
-                    <!-- ==================== 板块二：核心机器人平台 ==================== -->
                     <div class="equipment-section">
                         <div class="section-header">
                             <h2>核心机器人平台</h2>
@@ -408,10 +404,8 @@
                             从全开源ROS教育科研到地空协同联动，形成覆盖室内导航、全向移动与异构协同的多层级硬件矩阵。
                         </p>
                         <div class="equipment-grid">
-                            <!-- DJ 01 ROS复合机器人 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：DJ 01 ROS复合机器人实物照（麦克纳姆全向底盘+可扩展机械臂+X86主控，PDF产品图） -->
                                     <img src="img/devices/DJ01.jpg" alt="DJ 01 ROS复合机器人">
                                     <span class="equipment-badge accent">ROS PLATFORM</span>
                                 </div>
@@ -431,11 +425,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 地空协同套装 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：DJ Sky地空协同套装实物照（无人机+地面机器人协同作业场景，PDF产品图） -->
                                     <img src="img/devices/DJ_Sky.jpg" alt="地空协同套装">
                                     <span class="equipment-badge accent">AIR-GROUND</span>
                                 </div>
@@ -458,7 +449,6 @@
                         </div>
                     </div>
 
-                    <!-- ==================== 板块三：智能感知与执行模组 ==================== -->
                     <div class="equipment-section">
                         <div class="section-header">
                             <h2>智能感知与执行模组</h2>
@@ -466,13 +456,9 @@
                         <p class="section-desc">
                             DJ Smart智慧解决方案的核心组件，支持软硬件深度适配、算法优化与功能拓展，可按需定制末端执行机构、搭载多类传感检测设备。
                         </p>
-
-                        <!-- 传感器小模块 -->
                         <div class="module-grid">
-                            <!-- 雷达 -->
                             <div class="module-card">
                                 <div class="module-img">
-                                    <!-- 【图片备注】此处放置：激光雷达实物特写（PDF中雷达产品图，多线/固态雷达） -->
                                     <img src="img/devices/sensor_lidar.jpg" alt="激光雷达">
                                 </div>
                                 <div class="module-content">
@@ -480,11 +466,8 @@
                                     <div class="module-desc">构建全域感知矩阵核心传感器，支撑精准建图、雷达导航与多传感器融合定位。</div>
                                 </div>
                             </div>
-
-                            <!-- 深度相机 -->
                             <div class="module-card">
                                 <div class="module-img">
-                                    <!-- 【图片备注】此处放置：深度相机实物特写（PDF中深度相机产品图） -->
                                     <img src="img/devices/sensor_camera.jpg" alt="深度相机">
                                 </div>
                                 <div class="module-content">
@@ -492,11 +475,8 @@
                                     <div class="module-desc">顶部视觉多挡位支撑调节，支持视觉伺服、三维点云采集与多模态感知融合。</div>
                                 </div>
                             </div>
-
-                            <!-- 平行夹爪 -->
                             <div class="module-card">
                                 <div class="module-img">
-                                    <!-- 【图片备注】此处放置：平行夹爪实物特写（PDF中平行夹爪产品图，含腕部摄像头） -->
                                     <img src="img/devices/sensor_gripper.jpg" alt="平行夹爪">
                                 </div>
                                 <div class="module-content">
@@ -505,13 +485,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- 两大二次开发平台 -->
                         <div class="equipment-grid">
-                            <!-- 协作机械臂 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：smart-C高精度协作机械臂实物照（星海图机械臂，PDF中smart-C产品图） -->
                                     <img src="img/devices/smart_C.jpg" alt="高精度协作机械臂">
                                     <span class="equipment-badge">MANIPULATOR</span>
                                 </div>
@@ -531,11 +507,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 四足机器狗 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：smart-D四足机器狗实物照（智身科技四足平台，PDF中smart-D产品图） -->
                                     <img src="img/devices/smart_D.jpg" alt="四足机器狗">
                                     <span class="equipment-badge">QUADRUPED</span>
                                 </div>
@@ -558,7 +531,6 @@
                         </div>
                     </div>
 
-                    <!-- ==================== 板块四：虚拟仿真与课程资源 ==================== -->
                     <div class="equipment-section">
                         <div class="section-header">
                             <h2>虚拟仿真与课程资源</h2>
@@ -567,10 +539,8 @@
                             虚实结合是降低研发试错成本、加速算法迭代的关键。配备完善的虚拟仿真平台与全栈课程体系，支撑从入门到精通的能力培养。
                         </p>
                         <div class="equipment-grid">
-                            <!-- 虚拟仿真 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：DJ Virsual虚拟仿真平台界面截图（Gazebo/RViz高保真仿真环境，或数字孪生界面，PDF产品图） -->
                                     <img src="img/devices/DJ_Virsual.jpg" alt="虚拟仿真平台">
                                     <span class="equipment-badge accent">SIMULATION</span>
                                 </div>
@@ -590,11 +560,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 课程开发 -->
                             <div class="equipment-card">
                                 <div class="equipment-img">
-                                    <!-- 【图片备注】此处放置：DJ Lesson课程开发体系相关图（实验教学场景、课程教材封面或实训平台界面，PDF产品图） -->
                                     <img src="img/devices/DJ_Lesson.jpg" alt="课程开发体系">
                                     <span class="equipment-badge accent">EDUCATION</span>
                                 </div>
@@ -617,7 +584,6 @@
                         </div>
                     </div>
 
-                    <!-- ==================== 板块五：产学研合作生态 ==================== -->
                     <div class="equipment-section">
                         <div class="section-header">
                             <h2>产学研合作生态</h2>
@@ -659,7 +625,6 @@
                 </div>
             </div>
         </main>
-        <!-- ==================== 以上为修改内容 ==================== -->
 
         <footer class="site-footer">
             <h2 style="text-align: center;" class="page-title"><span>北京林业大学LION实验室</span></h2>
