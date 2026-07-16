@@ -8,6 +8,34 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
+    <!-- 新增导航固定顶部防覆盖样式 -->
+    <style>
+        /* 导航头部固定顶层 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background-color: #ffffff;
+        }
+        /* 清除导航列表默认浮动与边距 */
+        .topnav {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0 20px;
+            list-style: none;
+        }
+        .topnav li {
+            list-style: none;
+            margin: 0 8px;
+        }
+        /* 空白区域预留导航高度，避免内容被导航遮挡 */
+        .blank {
+            margin-top: 70px;
+        }
+    </style>
 </head>
 
 <body>
@@ -361,6 +389,10 @@
                     .featured-card { grid-template-columns: 1fr; }
                     .featured-img { min-height: 300px; }
                     .featured-content { padding: 30px; }
+                    /* 移动端适配导航上边距 */
+                    .blank {
+                        margin-top: 90px;
+                    }
                 }
             </style>
 
