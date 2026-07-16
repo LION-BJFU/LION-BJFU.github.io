@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
     <div class="site-content">
         <header class="site-header">
@@ -30,92 +29,641 @@
                 <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?" target="_blank">成果分享</a></li>
             </ul>
         </header>
-        <div class="blank">
+        <div class="blank"></div>
 
-        </div>
-
-       <main class="main-content">
-    <!-- 头部标题区 -->
-    <div class="page-head">
-        <div class="container">
-            <h3 class="page-title">科研设备</h3>
-        </div>
-    </div>
-
-    <!-- 自定义 16:9 样式（建议放在 <head> 的 <style> 标签内，或直接保留在此处） -->
-    <style>
-        .photo-16x9 {
-            width: 100%;
-            height: 350px; /* 固定高度以维持 16:9 视觉感，PC端建议350-400px */
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
-        }
-        .photo-16x9 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 核心：确保图片自动填充不拉伸 */
-        }
-        /* 强制图片下方文字不倾斜、加粗 */
-        .device-caption {
-            font-style: normal !important; 
-            text-align: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 30px;
-        }
-    </style>
-
-    <div class="fullwidth-block cta">
-        <div class="container">
-            <!-- 简介段落 -->
-            <div class="col-md-12">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 40px;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LION实验室拥有完善的软硬件支撑环境。基于高性能计算集群与多类型移动机器人平台，课题组构建了从算法仿真到实物部署的全闭环科研体系，为高水平研究成果的产出提供了坚实的保障。
-                </p>
-            </div>
-
-            <!-- 1. 服务器集群 -->
-            <div class="col-md-6">
-                <div class="photo-16x9">
-                    <img src="img/devices/服务器.jpg" alt="服务器集群">
-                </div>
-                <p class="device-caption">课题组高性能服务器集群</p>
-            </div>
-
-            <!-- 2. 大疆无人机 -->
-            <div class="col-md-6">
-                <div class="photo-16x9">
-                    <img src="img/devices/UAV.jpg" alt="大疆无人机">
-                </div>
-                <p class="device-caption">大疆高精度测绘与巡检无人机 (UAV)</p>
-            </div>
-
-            <!-- 3. 2D导航小车 -->
-            <div class="col-md-6">
-                <div class="photo-16x9">
-                    <img src="img/devices/2D.jpg" alt="室内导航小车">
-                </div>
-                <p class="device-caption">室内 ROS 2D 智能导航验证平台</p>
-            </div>
-
-            <!-- 4. 履带无人车 -->
-            <div class="col-md-6">
-                <div class="photo-16x9">
-                    <img src="img/devices/履带.jpg" alt="履带式无人车">
-                </div>
-                <p class="device-caption">全地形履带式自主导航无人车</p>
-            </div>
-
-        </div>
-    </div>
-</main>
-
-      <footer class="site-footer">
-                <h2 style="text-align: center;" class="page-title"><span>北京林业大学LION实验室</span></h2>
+        <!-- ==================== 以下为主要修改内容 ==================== -->
+        <main class="main-content">
+            <!-- 头部标题区 -->
+            <div class="page-head">
                 <div class="container">
+                    <h3 class="page-title">科研设备</h3>
+                </div>
+            </div>
+
+            <!-- 页面专属样式 -->
+            <style>
+                /* 整体布局 */
+                .equipment-section { margin-bottom: 70px; }
+                .section-header {
+                    text-align: center;
+                    margin-bottom: 45px;
+                    position: relative;
+                }
+                .section-header h2 {
+                    font-size: 28px;
+                    color: #1a3a5c;
+                    font-weight: 700;
+                    letter-spacing: 3px;
+                    display: inline-block;
+                    padding: 0 25px;
+                    background: #f8f9fa;
+                    position: relative;
+                    z-index: 2;
+                }
+                .section-header::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 20%;
+                    right: 20%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, #1a3a5c, transparent);
+                    z-index: 1;
+                }
+                .section-desc {
+                    font-size: 1.05rem;
+                    line-height: 1.9;
+                    color: #555;
+                    text-align: center;
+                    max-width: 900px;
+                    margin: 0 auto 35px;
+                }
+
+                /* 设备卡片网格 */
+                .equipment-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+                    gap: 30px;
+                    margin-bottom: 40px;
+                }
+                .equipment-card {
+                    background: #fff;
+                    border-radius: 14px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                    transition: all 0.35s ease;
+                    border: 1px solid #e8e8e8;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .equipment-card:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 16px 45px rgba(0,0,0,0.14);
+                }
+                .equipment-img {
+                    width: 100%;
+                    height: 260px;
+                    overflow: hidden;
+                    position: relative;
+                    background: #f0f2f5;
+                }
+                .equipment-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+                .equipment-card:hover .equipment-img img {
+                    transform: scale(1.06);
+                }
+                .equipment-badge {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    background: rgba(26, 58, 92, 0.92);
+                    color: #fff;
+                    padding: 5px 14px;
+                    border-radius: 20px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 1.5px;
+                }
+                .equipment-badge.accent {
+                    background: rgba(44, 123, 229, 0.92);
+                }
+                .equipment-content {
+                    padding: 25px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .equipment-title {
+                    font-size: 19px;
+                    font-weight: 700;
+                    color: #1a3a5c;
+                    margin-bottom: 8px;
+                    border-left: 4px solid #2c7be5;
+                    padding-left: 12px;
+                }
+                .equipment-subtitle {
+                    font-size: 13px;
+                    color: #888;
+                    margin-bottom: 14px;
+                    font-style: normal;
+                    letter-spacing: 0.5px;
+                }
+                .equipment-tags {
+                    margin-bottom: 14px;
+                }
+                .equipment-tags span {
+                    display: inline-block;
+                    background: #e8f4fd;
+                    color: #2c7be5;
+                    padding: 3px 10px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    margin-right: 6px;
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                }
+                .equipment-desc {
+                    font-size: 14px;
+                    line-height: 1.85;
+                    color: #444;
+                    margin-bottom: 15px;
+                    flex: 1;
+                }
+                .equipment-specs {
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    padding: 14px;
+                    font-size: 13px;
+                    color: #555;
+                    line-height: 1.8;
+                    border-left: 3px solid #2c7be5;
+                }
+                .equipment-specs strong {
+                    color: #1a3a5c;
+                }
+
+                /* 全宽特色卡片 */
+                .featured-card {
+                    display: grid;
+                    grid-template-columns: 1.1fr 0.9fr;
+                    gap: 0;
+                    background: #fff;
+                    border-radius: 14px;
+                    overflow: hidden;
+                    box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+                    margin-bottom: 35px;
+                    border: 1px solid #e8e8e8;
+                }
+                .featured-card.reverse {
+                    direction: rtl;
+                }
+                .featured-card.reverse > * {
+                    direction: ltr;
+                }
+                .featured-img {
+                    height: 100%;
+                    min-height: 400px;
+                    overflow: hidden;
+                    background: #f0f2f5;
+                    position: relative;
+                }
+                .featured-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .featured-content {
+                    padding: 45px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .featured-label {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #2c7be5, #1a3a5c);
+                    color: #fff;
+                    padding: 5px 18px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                    margin-bottom: 18px;
+                    width: fit-content;
+                }
+                .featured-title {
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: #1a3a5c;
+                    margin-bottom: 18px;
+                    line-height: 1.3;
+                }
+                .featured-desc {
+                    font-size: 15px;
+                    line-height: 1.9;
+                    color: #555;
+                    margin-bottom: 22px;
+                }
+                .featured-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .featured-list li {
+                    padding: 7px 0;
+                    padding-left: 24px;
+                    position: relative;
+                    font-size: 14px;
+                    color: #444;
+                    line-height: 1.6;
+                }
+                .featured-list li::before {
+                    content: '▸';
+                    position: absolute;
+                    left: 0;
+                    color: #2c7be5;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+                /* 小模块卡片（传感器等） */
+                .module-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 25px;
+                    margin-bottom: 40px;
+                }
+                .module-card {
+                    background: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+                    border: 1px solid #e8e8e8;
+                    transition: all 0.3s ease;
+                }
+                .module-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+                }
+                .module-img {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                    background: #f5f5f5;
+                }
+                .module-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .module-content {
+                    padding: 20px;
+                }
+                .module-title {
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #1a3a5c;
+                    margin-bottom: 8px;
+                }
+                .module-desc {
+                    font-size: 13px;
+                    color: #666;
+                    line-height: 1.7;
+                }
+
+                /* 顶部简介横幅 */
+                .intro-banner {
+                    background: linear-gradient(135deg, #1a3a5c 0%, #2c7be5 100%);
+                    color: #fff;
+                    padding: 55px 0;
+                    margin-bottom: 65px;
+                    text-align: center;
+                }
+                .intro-banner h2 {
+                    font-size: 21px;
+                    font-weight: 400;
+                    line-height: 1.9;
+                    max-width: 1050px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+                .company-tag {
+                    display: inline-block;
+                    background: rgba(255,255,255,0.15);
+                    border: 1px solid rgba(255,255,255,0.3);
+                    padding: 6px 20px;
+                    border-radius: 30px;
+                    font-size: 14px;
+                    margin-top: 20px;
+                    letter-spacing: 1px;
+                }
+
+                /* 响应式 */
+                @media (max-width: 768px) {
+                    .equipment-grid { grid-template-columns: 1fr; }
+                    .module-grid { grid-template-columns: 1fr; }
+                    .featured-card { grid-template-columns: 1fr; }
+                    .featured-card.reverse { direction: ltr; }
+                    .featured-img { min-height: 220px; }
+                    .featured-content { padding: 30px; }
+                }
+            </style>
+
+            <!-- 顶部简介横幅 -->
+            <div class="intro-banner">
+                <h2>
+                    LION实验室依托<strong>北京夺锦智能科技有限公司</strong>，构建了"计算-仿真-实物-竞赛"四位一体的全闭环科研体系。<br>
+                    涵盖ROS复合机器人、具身智能人形系统、地空协同装备、智能感知模组与虚拟仿真平台，<br>
+                    为具身智能、自主导航、多机协同等前沿研究提供完整支撑。
+                </h2>
+                <div class="company-tag">北京夺锦智能科技有限公司 · 产学研深度合作</div>
+            </div>
+
+            <div class="fullwidth-block cta">
+                <div class="container">
+
+                    <!-- ==================== 板块一：具身智能旗舰平台 ==================== -->
+                    <div class="equipment-section">
+                        <div class="section-header">
+                            <h2>具身智能旗舰平台</h2>
+                        </div>
+                        <p class="section-desc">
+                            面向具身智能前沿研究，融合自主移动、模型部署、边缘计算、多模态感知和模型推理等核心功能，是感知-决策-执行全闭环的理想物理载体。
+                        </p>
+
+                        <!-- 特色展示：DJ 02 Pro -->
+                        <div class="featured-card">
+                            <div class="featured-img">
+                                <!-- 【图片备注】此处放置：DJ 02 Pro具身智能人形机器人全身实物照（麦克纳姆轮底盘+仿生双臂+腰部升降+顶部视觉，PDF旗舰产品图） -->
+                                <img src="img/devices/DJ02Pro.jpg" alt="DJ 02 Pro具身智能人形机器人">
+                                <span class="equipment-badge" style="top:20px;right:20px;font-size:13px;padding:6px 18px;">FLAGSHIP</span>
+                            </div>
+                            <div class="featured-content">
+                                <span class="featured-label">旗舰科研平台</span>
+                                <div class="featured-title">DJ 02 Pro<br>具身智能人形机器人开发平台</div>
+                                <div class="featured-desc">
+                                    专为具身智能科研、竞赛与教学场景打造。搭载麦克纳姆轮全向底盘，零半径机动 + 动态避障；仿生6自由度双臂，工业级精度且实时响应动作下达；67TOPS高算力边缘中枢，多传感器构建全域感知矩阵，利于具身大模型的部署和推理。
+                                </div>
+                                <ul class="featured-list">
+                                    <li>腰部自由升降，应对复杂任务需求进行精细化处理</li>
+                                    <li>高响应实时平行夹爪搭配腕部摄像头，实时监测执行状态</li>
+                                    <li>全面兼容ROS 2 Humble / Ubuntu / Lerobot，支持Python/C++开发</li>
+                                    <li>拥有完善GUI界面驱动机器人，上手门槛低，轻松入门具身智能</li>
+                                    <li>数字孪生虚实无缝迁移，丰富扩展接口预留二次开发空间</li>
+                                    <li>支持主控部署VLA模型及模型推理，自适应调整腰部高度完成复杂任务</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 板块二：核心机器人平台 ==================== -->
+                    <div class="equipment-section">
+                        <div class="section-header">
+                            <h2>核心机器人平台</h2>
+                        </div>
+                        <p class="section-desc">
+                            从全开源ROS教育科研到地空协同联动，形成覆盖室内导航、全向移动与异构协同的多层级硬件矩阵。
+                        </p>
+                        <div class="equipment-grid">
+                            <!-- DJ 01 ROS复合机器人 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：DJ 01 ROS复合机器人实物照（麦克纳姆全向底盘+可扩展机械臂+X86主控，PDF产品图） -->
+                                    <img src="img/devices/DJ01.jpg" alt="DJ 01 ROS复合机器人">
+                                    <span class="equipment-badge accent">ROS PLATFORM</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">DJ 01 ROS复合机器人</div>
+                                    <div class="equipment-subtitle">全开源ROS教育科研解决方案</div>
+                                    <div class="equipment-tags">
+                                        <span>麦克纳姆全向底盘</span>
+                                        <span>X86主控</span>
+                                        <span>机械臂扩展</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        搭载麦克纳姆全向底盘与高性能X86主控，支持自主导航、SLAM建图与二次开发。可灵活集成四轴/六轴机械臂，打造复合型机器人，满足教学实训、科研创新与赛事需求。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>核心优势：</strong>产品接口丰富、扩展性强，配套完善课程与仿真资源，性价比突出，是高校与科研团队的理想开发平台。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 地空协同套装 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：DJ Sky地空协同套装实物照（无人机+地面机器人协同作业场景，PDF产品图） -->
+                                    <img src="img/devices/DJ_Sky.jpg" alt="地空协同套装">
+                                    <span class="equipment-badge accent">AIR-GROUND</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">DJ Sky 地空协同套装</div>
+                                    <div class="equipment-subtitle">AI竞赛全场景技术解决方案</div>
+                                    <div class="equipment-tags">
+                                        <span>异构协同</span>
+                                        <span>空地联动</span>
+                                        <span>白名单赛事</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        面向高校白名单赛事的AI竞赛平台套装，提供一站式软硬件支撑。无人机空中视角与地面机器人移动能力高效融合，打通设备数据链路，统一智能调度平台。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>赛事支撑：</strong>中国机器人及人工智能大赛(CRAIC) · 中国机器人大赛 · 国际青年人工智能大赛(IYAIC) · 全球校园人工智能精英算法大赛
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 板块三：智能感知与执行模组 ==================== -->
+                    <div class="equipment-section">
+                        <div class="section-header">
+                            <h2>智能感知与执行模组</h2>
+                        </div>
+                        <p class="section-desc">
+                            DJ Smart智慧解决方案的核心组件，支持软硬件深度适配、算法优化与功能拓展，可按需定制末端执行机构、搭载多类传感检测设备。
+                        </p>
+
+                        <!-- 传感器小模块 -->
+                        <div class="module-grid">
+                            <!-- 雷达 -->
+                            <div class="module-card">
+                                <div class="module-img">
+                                    <!-- 【图片备注】此处放置：激光雷达实物特写（PDF中雷达产品图，多线/固态雷达） -->
+                                    <img src="img/devices/sensor_lidar.jpg" alt="激光雷达">
+                                </div>
+                                <div class="module-content">
+                                    <div class="module-title">多线激光雷达</div>
+                                    <div class="module-desc">构建全域感知矩阵核心传感器，支撑精准建图、雷达导航与多传感器融合定位。</div>
+                                </div>
+                            </div>
+
+                            <!-- 深度相机 -->
+                            <div class="module-card">
+                                <div class="module-img">
+                                    <!-- 【图片备注】此处放置：深度相机实物特写（PDF中深度相机产品图） -->
+                                    <img src="img/devices/sensor_camera.jpg" alt="深度相机">
+                                </div>
+                                <div class="module-content">
+                                    <div class="module-title">深度视觉相机</div>
+                                    <div class="module-desc">顶部视觉多挡位支撑调节，支持视觉伺服、三维点云采集与多模态感知融合。</div>
+                                </div>
+                            </div>
+
+                            <!-- 平行夹爪 -->
+                            <div class="module-card">
+                                <div class="module-img">
+                                    <!-- 【图片备注】此处放置：平行夹爪实物特写（PDF中平行夹爪产品图，含腕部摄像头） -->
+                                    <img src="img/devices/sensor_gripper.jpg" alt="平行夹爪">
+                                </div>
+                                <div class="module-content">
+                                    <div class="module-title">高响应平行夹爪</div>
+                                    <div class="module-desc">搭配腕部摄像头，实时监测执行夹爪状态，契合模型推理，支持模块化定制更换末端执行器。</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 两大二次开发平台 -->
+                        <div class="equipment-grid">
+                            <!-- 协作机械臂 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：smart-C高精度协作机械臂实物照（星海图机械臂，PDF中smart-C产品图） -->
+                                    <img src="img/devices/smart_C.jpg" alt="高精度协作机械臂">
+                                    <span class="equipment-badge">MANIPULATOR</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">Smart-C 高精度协作机械臂</div>
+                                    <div class="equipment-subtitle">工业级力控协作 · 精准作业终端</div>
+                                    <div class="equipment-tags">
+                                        <span>力控协作</span>
+                                        <span>视觉引导</span>
+                                        <span>精密装配</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        依托星海图高精度协作机械臂，实现跨品类设备灵活组合搭载。支持力控交互、视觉引导抓取与精密装配任务，是具身智能操作算法研究的精密执行终端。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>能力范围：</strong>视觉伺服抓取 · 力控装配 · 人机协作安全控制 · 轨迹规划与优化
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 四足机器狗 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：smart-D四足机器狗实物照（智身科技四足平台，PDF中smart-D产品图） -->
+                                    <img src="img/devices/smart_D.jpg" alt="四足机器狗">
+                                    <span class="equipment-badge">QUADRUPED</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">Smart-D 四足机器狗</div>
+                                    <div class="equipment-subtitle">全地形移动平台 · 智身科技</div>
+                                    <div class="equipment-tags">
+                                        <span>全地形移动</span>
+                                        <span>运动控制</span>
+                                        <span>多机协同</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        基于智身科技四足平台，通过自主二次开发优化运动控制、视觉识别、自主导航与多机协同系统。将机械臂精准作业能力与机器狗全地形移动能力高效融合。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>研发方向：</strong>足式运动控制 · 地形自适应步态 · 机械臂-足式协同 · 远程调度与巡检
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 板块四：虚拟仿真与课程资源 ==================== -->
+                    <div class="equipment-section">
+                        <div class="section-header">
+                            <h2>虚拟仿真与课程资源</h2>
+                        </div>
+                        <p class="section-desc">
+                            虚实结合是降低研发试错成本、加速算法迭代的关键。配备完善的虚拟仿真平台与全栈课程体系，支撑从入门到精通的能力培养。
+                        </p>
+                        <div class="equipment-grid">
+                            <!-- 虚拟仿真 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：DJ Virsual虚拟仿真平台界面截图（Gazebo/RViz高保真仿真环境，或数字孪生界面，PDF产品图） -->
+                                    <img src="img/devices/DJ_Virsual.jpg" alt="虚拟仿真平台">
+                                    <span class="equipment-badge accent">SIMULATION</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">DJ Virsual 虚拟仿真平台</div>
+                                    <div class="equipment-subtitle">Digital Twin · 数字孪生 · 虚实迁移</div>
+                                    <div class="equipment-tags">
+                                        <span>数字孪生</span>
+                                        <span>Gazebo</span>
+                                        <span>ROS 2</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        数字孪生虚实无缝迁移，提供高保真机器人仿真环境。支持算法预验证、参数调优与场景复现，大幅降低实物实验成本，适配全流程科研与竞赛备赛需求。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>平台能力：</strong>高保真物理仿真 · 传感器噪声建模 · 虚实策略迁移 · 大规模场景并行训练
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 课程开发 -->
+                            <div class="equipment-card">
+                                <div class="equipment-img">
+                                    <!-- 【图片备注】此处放置：DJ Lesson课程开发体系相关图（实验教学场景、课程教材封面或实训平台界面，PDF产品图） -->
+                                    <img src="img/devices/DJ_Lesson.jpg" alt="课程开发体系">
+                                    <span class="equipment-badge accent">EDUCATION</span>
+                                </div>
+                                <div class="equipment-content">
+                                    <div class="equipment-title">DJ Lesson 课程开发体系</div>
+                                    <div class="equipment-subtitle">ROS · 具身智能 · 全栈课程与实验指导</div>
+                                    <div class="equipment-tags">
+                                        <span>全栈课程</span>
+                                        <span>实验指导</span>
+                                        <span>竞赛培训</span>
+                                    </div>
+                                    <div class="equipment-desc">
+                                        配套完善课程与仿真资源，覆盖ROS基础、移动机器人导航、机械臂操作、具身智能大模型部署等模块。是高校与科研团队快速开展机器人教学与竞赛培训的理想资源库。
+                                    </div>
+                                    <div class="equipment-specs">
+                                        <strong>课程模块：</strong>ROS 2 Humble基础 · SLAM理论与实战 · 机械臂运动规划 · 具身智能VLA模型部署
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 板块五：产学研合作生态 ==================== -->
+                    <div class="equipment-section">
+                        <div class="section-header">
+                            <h2>产学研合作生态</h2>
+                        </div>
+                        <p class="section-desc">
+                            依托北京夺锦智能科技有限公司，实验室与哈尔滨工业大学、中国人民解放军空军工程大学、中国人民解放军海军航空大学、大连理工大学、山西大学、赣南师范大学、桂林理工大学等十余所重点高校建立长期稳定合作。
+                        </p>
+                        <div style="background: linear-gradient(135deg, #f8f9fa, #e8f4fd); border-radius: 14px; padding: 40px; text-align: center; border: 1px solid #d0e3f7;">
+                            <h3 style="color: #1a3a5c; font-size: 20px; margin-bottom: 20px; font-weight: 700;">产品矩阵一览</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ 01</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">ROS复合机器人<br>全开源教育科研平台</div>
+                                </div>
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ 02 Pro</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">具身智能人形机器人<br>旗舰科研平台</div>
+                                </div>
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ Sky</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">地空协同套装<br>AI竞赛全场景方案</div>
+                                </div>
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ Smart</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">智慧解决方案<br>二次开发与系统集成</div>
+                                </div>
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ Virsual</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">虚拟仿真平台<br>数字孪生虚实迁移</div>
+                                </div>
+                                <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 700; color: #2c7be5; margin-bottom: 8px; font-size: 15px;">DJ Lesson</div>
+                                    <div style="font-size: 13px; color: #666; line-height: 1.6;">课程开发体系<br>全栈教学与竞赛培训</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <!-- ==================== 以上为修改内容 ==================== -->
+
+        <footer class="site-footer">
+            <h2 style="text-align: center;" class="page-title"><span>北京林业大学LION实验室</span></h2>
+            <div class="container">
                 <div class="row">
                     <div class="col-xs-1">
                         <div class="widget">
@@ -127,7 +675,7 @@
                                         <a href="#">北京林业大学西配楼</a><br />
                                         <a href="#">北京林业大学学研大厦</a><br />
                                     </p>
-                                <p>
+                                    <p>
                                         联系电话<br /><br />
                                         <a href="#">010-62337273</a><br />
                                         <a href="#">fanxin@bjfu.edu.cn</a><br />
@@ -153,36 +701,16 @@
                         <div class="widget">
                             <h3 class="widget-title">相关链接</h3>
                             <ul class="dash-list">
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/d704e95bcba74ac5a016b02d3d0cc110.html" target="_blank" rel="noopener noreferrer">罗传文老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://fuanxiyin.github.io/" target="_blank" rel="noopener noreferrer">范&nbsp;&nbsp;&nbsp;新老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">洪&nbsp;&nbsp;&nbsp;弋老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/js2/4c27215e3e3d4813a36f3ea6f768f588.html" target="_blank" rel="noopener noreferrer">徐红艳老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/js/b5ba6b40f75b4e8f90671dfe2250a937.html" target="_blank" rel="noopener noreferrer">孙&nbsp;&nbsp;&nbsp;俏老师个人主页</a>
-                                </li>
-                                      <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/374460.html" target="_blank" rel="noopener noreferrer">孙国栋老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">罗&nbsp;&nbsp;&nbsp;丹老师个人主页</a>
-                                </li>
-                                  <li>
-                                    <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=qJ5-4LEAAAAJ" target="_blank" rel="noopener noreferrer">孔龙腾老师个人主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学主页</a>
-                                </li>
-                                <li>
-                                    <a href="https://it.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学信息学院（人工智能学院）主页</a>
-                                </li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/d704e95bcba74ac5a016b02d3d0cc110.html" target="_blank" rel="noopener noreferrer">罗传文老师个人主页</a></li>
+                                <li><a href="https://fuanxiyin.github.io/" target="_blank" rel="noopener noreferrer">范&nbsp;&nbsp;&nbsp;新老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">洪&nbsp;&nbsp;&nbsp;弋老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/js2/4c27215e3e3d4813a36f3ea6f768f588.html" target="_blank" rel="noopener noreferrer">徐红艳老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/js/b5ba6b40f75b4e8f90671dfe2250a937.html" target="_blank" rel="noopener noreferrer">孙&nbsp;&nbsp;&nbsp;俏老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/374460.html" target="_blank" rel="noopener noreferrer">孙国栋老师个人主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/szdw/szgk/fjs/1024c77d144e4a67a293126cae4cb4ba.html" target="_blank" rel="noopener noreferrer">罗&nbsp;&nbsp;&nbsp;丹老师个人主页</a></li>
+                                <li><a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=qJ5-4LEAAAAJ" target="_blank" rel="noopener noreferrer">孔龙腾老师个人主页</a></li>
+                                <li><a href="https://www.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学主页</a></li>
+                                <li><a href="https://it.bjfu.edu.cn/" target="_blank" rel="noopener noreferrer">北京林业大学信息学院（人工智能学院）主页</a></li>
                             </ul>
                         </div>
                     </div>
@@ -197,15 +725,11 @@
                 </div>
             </div>
         </footer>
-
     </div>
-
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
-
 </body>
-
 </html>
