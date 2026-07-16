@@ -90,31 +90,34 @@
                     border: 1px solid #e8e8e8;
                     display: flex;
                     flex-direction: column;
+                    position: relative;          /* 限制内部绝对定位 */
                 }
                 .equipment-card:hover {
                     transform: translateY(-6px);
                     box-shadow: 0 16px 45px rgba(0,0,0,0.14);
                 }
-                /* 普通设备卡片图片区：固定高度，contain完整展示，灰色背景填充 */
+                /* 图片容器：绝对定位布局，严格防溢出 */
                 .equipment-img {
                     width: 100%;
                     height: 280px;
                     overflow: hidden;
                     position: relative;
                     background: #f0f2f5;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                 }
                 .equipment-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
-                    object-position: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
                     transition: transform 0.5s ease;
                 }
                 .equipment-card:hover .equipment-img img {
-                    transform: scale(1.04);
+                    transform: translate(-50%, -50%) scale(1.04);
                 }
                 .equipment-badge {
                     position: absolute;
@@ -187,7 +190,7 @@
                     color: #1a3a5c;
                 }
 
-                /* 旗舰特色卡片：左右布局 */
+                /* 旗舰特色卡片 */
                 .featured-card {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
@@ -198,22 +201,25 @@
                     box-shadow: 0 6px 30px rgba(0,0,0,0.1);
                     margin-bottom: 35px;
                     border: 1px solid #e8e8e8;
+                    position: relative;          /* 限制内部绝对定位 */
                 }
                 .featured-img {
                     height: 100%;
                     min-height: 420px;
                     overflow: hidden;
-                    background: #f0f2f5;
                     position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    background: #f0f2f5;
                 }
                 .featured-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
-                    object-position: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
                 }
                 .featured-content {
                     padding: 45px;
@@ -282,6 +288,7 @@
                     box-shadow: 0 3px 15px rgba(0,0,0,0.07);
                     border: 1px solid #e8e8e8;
                     transition: all 0.3s ease;
+                    position: relative;          /* 限制内部绝对定位 */
                 }
                 .module-card:hover {
                     transform: translateY(-4px);
@@ -291,16 +298,19 @@
                     width: 100%;
                     height: 220px;
                     overflow: hidden;
+                    position: relative;
                     background: #f5f5f5;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                 }
                 .module-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;          /* 改为 contain，完整展示不裁剪 */
-                    object-position: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
                 }
                 .module-content {
                     padding: 20px;
